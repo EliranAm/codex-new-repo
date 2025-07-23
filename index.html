@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Match Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Soccer Match Finder</h1>
+        <button id="new-match">+ New match</button>
+    </header>
+
+    <section id="search-filter">
+        <input type="text" placeholder="Search matches" id="search-box">
+        <select id="tag-filter">
+            <option value="">All tags</option>
+            <option value="friendly">Friendly</option>
+            <option value="competitive">Competitive</option>
+        </select>
+        <select id="sort">
+            <option value="newest">Newest</option>
+            <option value="alpha">Alphabetical</option>
+        </select>
+    </section>
+
+    <section id="matches">
+        <!-- Match cards will go here -->
+        <p id="empty-state">No matches yet. <a href="#" id="create-first">Create your first match</a></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
