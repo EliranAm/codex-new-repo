@@ -23,12 +23,91 @@ if (createFirst) {
   });
 }
 
-// Handle create match form submission
+// Utility functions for storing matches in localStorage
+function getStoredMatches() {
+  try {
+    return JSON.parse(localStorage.getItem('matches')) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function addMatch(match) {
+  const matches = getStoredMatches();
+  matches.push(match);
+  localStorage.setItem('matches', JSON.stringify(matches));
+}
+
+// Render matches on the main page
+const matchesContainer = document.getElementById('matches');
+if (matchesContainer) {
+  const matches = getStoredMatches();
+  const empty = document.getElementById('empty-state');
+  if (matches.length === 0) {
+    if (empty) empty.style.display = 'block';
+  } else {
+    if (empty) empty.style.display = 'none';
+    matches.forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'match-card';
+      card.innerHTML = `
+        <h3>${m.title}</h3>
+        <p>${m.location} | ${m.datetime ? new Date(m.datetime).toLocaleString() : ''}</p>
+        <p>Players: ${m.players.join(', ')}</p>
+        <p>${m.notes}</p>`;
+      matchesContainer.appendChild(card);
+    });
+  }
+}
+
+// Handle player list building and match form submission
 const matchForm = document.getElementById('match-form');
+const playerInput = document.getElementById('player-input');
+const addPlayerBtn = document.getElementById('add-player');
+const playerList = document.getElementById('player-list');
+const players = [];
+
+function renderPlayers() {
+  if (!playerList) return;
+  playerList.innerHTML = '';
+  players.forEach((name, idx) => {
+    const li = document.createElement('li');
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.textContent = 'x';
+    remove.addEventListener('click', () => {
+      players.splice(idx, 1);
+      renderPlayers();
+    });
+    li.textContent = name + ' ';
+    li.appendChild(remove);
+    playerList.appendChild(li);
+  });
+}
+
+if (addPlayerBtn && playerInput) {
+  addPlayerBtn.addEventListener('click', () => {
+    const name = playerInput.value.trim();
+    if (name) {
+      players.push(name);
+      playerInput.value = '';
+      renderPlayers();
+      playerInput.focus();
+    }
+  });
+}
+
 if (matchForm) {
   matchForm.addEventListener('submit', e => {
     e.preventDefault();
-    alert('Match created! (placeholder)');
+    const newMatch = {
+      title: document.getElementById('match-title').value.trim(),
+      location: document.getElementById('match-location').value.trim(),
+      datetime: document.getElementById('match-datetime').value,
+      players: players.slice(),
+      notes: document.getElementById('match-notes').value.trim()
+    };
+    addMatch(newMatch);
     window.location.href = 'index.html';
   });
 }

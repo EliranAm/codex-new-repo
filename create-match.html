@@ -19,11 +19,15 @@
         <button id="flow-test">Test Flow</button>
     </nav>
     <form id="match-form">
-        <label>Title <input type="text" required></label>
-        <label>Location <input type="text"></label>
-        <label>Date &amp; Time <input type="datetime-local"></label>
-        <label>Players (comma separated) <input type="text" placeholder="e.g. Alice,Bob"></label>
-        <label>Notes <textarea></textarea></label>
+        <label>Title <input id="match-title" type="text" required></label>
+        <label>Location <input id="match-location" type="text"></label>
+        <label>Date &amp; Time <input id="match-datetime" type="datetime-local"></label>
+        <label>Player
+            <input id="player-input" type="text" placeholder="e.g. Alice">
+            <button id="add-player" type="button">Add</button>
+        </label>
+        <ul id="player-list"></ul>
+        <label>Notes <textarea id="match-notes"></textarea></label>
         <button type="submit">Create Match</button>
     </form>
     <script src="script.js"></script>
