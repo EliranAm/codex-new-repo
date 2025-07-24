@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Soccer Match Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Settings</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Log In</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="settings.html">Settings</a>
+        <button id="flow-test">Test Flow</button>
+    </nav>
+
+    <section id="user-info">
+        <h2>User Info</h2>
+        <p>Email: user@example.com</p>
+        <p>Name: John Doe</p>
+    </section>
+
+    <section id="preferences">
+        <h2>Preferences</h2>
+        <label>
+            Theme
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </label>
+    </section>
+
+    <section id="export-import">
+        <h2>Backup Matches</h2>
+        <button id="export">Export JSON</button>
+        <input type="file" id="import">
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
