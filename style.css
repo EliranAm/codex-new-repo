@@ -71,3 +71,26 @@ button {
     background: #111;
     color: #eee;
 }
+
+.match-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#player-list {
+    list-style: none;
+    padding: 0;
+}
+
+#player-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#player-list button {
+    margin-left: 10px;
+}
