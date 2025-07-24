@@ -4,6 +4,7 @@ This repository contains a simple prototype for an application that helps player
 
 ## Pages
 - **index.html** – Main page with search and filter controls. Displays an empty state encouraging creation of the first match.
+- **create-match.html** – Form for creating a new match with title, location, players, and notes fields.
 - **login.html** – Basic login form with email/password fields and a placeholder link for Google sign‑in.
 - **signup.html** – Sign‑up form requesting name, email, and password confirmation.
 - **settings.html** – Shows user information and allows switching between light and dark themes. Includes placeholder export/import buttons.

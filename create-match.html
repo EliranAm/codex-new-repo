@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Soccer Match Finder</title>
+    <title>Create Match - Soccer Match Finder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Sign Up</h1>
+        <h1>Create Match</h1>
     </header>
     <nav>
         <a href="index.html">Home</a>
@@ -18,13 +18,14 @@
         <a href="settings.html">Settings</a>
         <button id="flow-test">Test Flow</button>
     </nav>
-    <form>
-        <label>Name <input type="text" required></label>
-        <label>Email <input type="email" required></label>
-        <label>Password <input type="password" required></label>
-        <label>Confirm Password <input type="password" required></label>
-        <button type="submit">Sign Up</button>
+    <form id="match-form">
+        <label>Title <input type="text" required></label>
+        <label>Location <input type="text"></label>
+        <label>Date &amp; Time <input type="datetime-local"></label>
+        <label>Players (comma separated) <input type="text" placeholder="e.g. Alice,Bob"></label>
+        <label>Notes <textarea></textarea></label>
+        <button type="submit">Create Match</button>
     </form>
-    <p>Already have an account? <a href="login.html">Log in</a></p>
+    <script src="script.js"></script>
 </body>
 </html>

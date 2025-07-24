@@ -59,6 +59,10 @@ form {
     margin: 0 auto;
 }
 
+textarea {
+    min-height: 80px;
+}
+
 button {
     padding: 10px;
 }
