@@ -131,3 +131,31 @@ if (new URLSearchParams(location.search).has('flow')) {
     setTimeout(() => nextTrigger.click(), 1000);
   }
 }
+
+// Google Sign-In setup for login page
+const gSignInDiv = document.getElementById('google-signin');
+if (gSignInDiv && window.google && window.google.accounts && window.google.accounts.id) {
+  google.accounts.id.initialize({
+    client_id: 'YOUR_GOOGLE_CLIENT_ID',
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.renderButton(gSignInDiv, { theme: 'outline', size: 'large' });
+}
+
+function handleCredentialResponse(response) {
+  try {
+    const data = parseJwt(response.credential);
+    alert(`Signed in as ${data.name || data.email}`);
+    localStorage.setItem('user', JSON.stringify(data));
+    window.location.href = 'index.html';
+  } catch (e) {
+    alert('Google sign-in failed');
+  }
+}
+
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const json = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+  return JSON.parse(json);
+}
