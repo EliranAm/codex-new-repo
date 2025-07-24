@@ -10,5 +10,8 @@ This repository contains a simple prototype for an application that helps player
 
 Styles are defined in **style.css**, and **script.js** contains a simple theme toggle along with placeholder match creation logic.
 
+### Testing page flow
+Each page includes a navigation bar linking to the other pages. A **Test Flow** button cycles through the pages automatically so you can verify navigation works. Click the button on any page (or append `?flow=1` to the URL) to start the cycle.
+
 ## Usage
 Open any of the HTML files in your web browser. All functionality is client‑side only and does not include real authentication or persistent storage. This prototype is intended for demonstration and experimentation purposes.
