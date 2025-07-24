@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Match - Soccer Match Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Create Match</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Log In</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="create-match.html">Create Match</a>
+        <a href="settings.html">Settings</a>
+        <button id="flow-test">Test Flow</button>
+    </nav>
+    <form id="match-form">
+        <label>Title <input type="text" required></label>
+        <label>Location <input type="text"></label>
+        <label>Date &amp; Time <input type="datetime-local"></label>
+        <label>Players (comma separated) <input type="text" placeholder="e.g. Alice,Bob"></label>
+        <label>Notes <textarea></textarea></label>
+        <button type="submit">Create Match</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
